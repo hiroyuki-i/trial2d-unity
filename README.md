@@ -1,4 +1,4 @@
 trial2d-unity
 =============
 
-This is a game project of the Unity.
+This is a trial game project of the Unity.
