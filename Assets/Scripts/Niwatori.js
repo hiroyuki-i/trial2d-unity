@@ -1,10 +1,10 @@
 ﻿#pragma strict
 
-var speed : float = 9;
+var speed : float = 10;
 var rightEndPosition : Vector3;
 var leftEndPosition : Vector3;
 private var isRight : boolean = true;
-private var adjust : float = 0.1; 
+private var stageManager : StageManager;
 
 function Start(){
 	yield WaitForSeconds (1);
@@ -28,7 +28,7 @@ function Update () {
 	}
 	
 	//random turn?
-	if(1 == parseInt(Random.Range(-10.0 ,40.0))){
+	if(1 == parseInt(Random.Range(1.0 ,35.0))){
 		if(isRight){
 			isRight = false;
 			transform.localScale.x = -1;
@@ -45,20 +45,30 @@ function Update () {
 }
 
 function shot(){
+
 	var shotPosition : Transform;
 	var i : int;
 	var rand : int;
 	var prefab : GameObject;
 	var prefabEgg : GameObject = Resources.Load("Egg");
+	var prefabChick : GameObject = Resources.Load("Chick");
 	var prefabWepon01 : GameObject = Resources.Load("Wepon01");
 	var prefabWepon02 : GameObject = Resources.Load("Wepon02");
+	stageManager = FindObjectOfType(StageManager);
 	while(true){
+		
+		while(stageManager.IsPlaying() == false){
+			yield WaitForEndOfFrame();
+		}
+		
 		rand = parseInt(Random.Range(0.0 ,10.0));
-		if(rand == 1){
+		if(rand == 1 || rand == 2){
 			prefab = prefabWepon01;
-		}else if(rand == 2){
+		}else if(rand == 3){
 			prefab = prefabWepon02;
-		}else{
+		}else if(rand == 4){
+			prefab = prefabChick;
+		}else{	
 			prefab = prefabEgg;
 		}
 		i = (isRight) ? 1 : 0;

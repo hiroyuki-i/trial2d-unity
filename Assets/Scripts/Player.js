@@ -2,6 +2,7 @@
 
 var isRight : boolean = true;
 var speed : float = 8;
+var playerDead : GameObject;
 
 function Update () {
 	
@@ -20,14 +21,20 @@ function Update () {
 		transform.localScale.x = 1;
 	}
 	
-	Clamp();
-}
-
-function Clamp(){
 	var min = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
 	var max = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
 	var pos = transform.position;
-	
 	pos.x = Mathf.Clamp(pos.x, min.x + 0.7, max.x - 0.7);
 	transform.position = pos;
+}
+
+function OnTriggerEnter2D(c : Collider2D){
+	
+	var layerName : String = LayerMask.LayerToName(c.gameObject.layer);
+	if(layerName == "Wepon"){
+		Destroy(gameObject);
+		Instantiate(playerDead,transform.position,transform.rotation);
+		FindObjectOfType(StageManager).GameOver();
+		Destroy(c.gameObject);
+	}
 }

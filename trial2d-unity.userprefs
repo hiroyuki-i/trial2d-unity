@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\StageManager.js">
+    <Files>
+      <File FileName="Assets\Scripts\Niwatori.js" Line="79" Column="2" />
+      <File FileName="Assets\Scripts\Player.js" Line="40" Column="2" />
+      <File FileName="Assets\Scripts\Niwatori.js" Line="64" Column="44" />
+      <File FileName="Assets\Scripts\Throwing.js" Line="23" Column="3" />
+      <File FileName="Assets\Scripts\StageManager.js" Line="21" Column="21" />
+      <File FileName="Assets\Scripts\PlayerDead.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DestroyArea.js" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\Score.js" Line="7" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
