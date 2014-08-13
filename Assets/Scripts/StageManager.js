@@ -10,7 +10,7 @@ function Start(){
 }
 
 function Update () {
-	if( IsPlaying() == false && Input.GetKeyDown(KeyCode.X)){
+	if( IsPlaying() == false && (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))){
 		GameStart();
 	}
 }
