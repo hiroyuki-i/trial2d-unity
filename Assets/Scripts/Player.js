@@ -3,6 +3,7 @@
 var isRight : boolean = true;
 var speed : float = 8;
 var playerDead : GameObject;
+private var adjustPlayerPosition : float = 0.7;
 
 function Update () {
 	
@@ -24,7 +25,7 @@ function Update () {
 	var min = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
 	var max = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
 	var pos = transform.position;
-	pos.x = Mathf.Clamp(pos.x, min.x + 0.7, max.x - 0.7);
+	pos.x = Mathf.Clamp(pos.x, min.x + adjustPlayerPosition, max.x - adjustPlayerPosition);
 	transform.position = pos;
 }
 

@@ -1,9 +1,10 @@
 ﻿#pragma strict
 
 var speed : float = 10;
-var rightEndPosition : Vector3;
-var leftEndPosition : Vector3;
+var rightEndPosition : Vector2;
+var leftEndPosition : Vector2;
 private var isRight : boolean = true;
+private var adjustNiwatoriPosition : float = 1.7;
 private var stageManager : StageManager;
 
 function Start(){
@@ -14,15 +15,19 @@ function Start(){
 function Update () {
 	
 	//end position?
+	rightEndPosition = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
+	rightEndPosition.x = rightEndPosition.x - adjustNiwatoriPosition;
+	leftEndPosition = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
+	leftEndPosition.x = leftEndPosition.x + adjustNiwatoriPosition;
 	var pos = transform.position;
-	if(pos.x < leftEndPosition.x || pos.x > rightEndPosition.x){
+	if(pos.x < leftEndPosition.x|| pos.x > rightEndPosition.x){
 		if(isRight){
 			isRight = false;
-			transform.position = rightEndPosition;
+			transform.position.x = rightEndPosition.x;
 			transform.localScale.x = -1;
 		}else{
 			isRight = true;
-			transform.position = leftEndPosition;
+			transform.position.x = leftEndPosition.x;
 			transform.localScale.x = 1;
 		}
 	}

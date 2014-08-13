@@ -9,8 +9,8 @@ function Start(){
 	score = FindObjectOfType(Score);
 }
 
-function Update () {
-	if( IsPlaying() == false && Input.GetKeyDown(KeyCode.X)){
+function OnGUI(){
+	if(IsPlaying() == false && Event.current.type == EventType.MouseDown){
 		GameStart();
 	}
 }
